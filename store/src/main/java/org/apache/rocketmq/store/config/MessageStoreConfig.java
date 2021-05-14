@@ -151,6 +151,10 @@ public class MessageStoreConfig {
     private String dLegerPeers;
     private String dLegerSelfId;
 
+    private String preferredLeaderId;
+
+    private boolean isEnableBatchPush = false;
+
     public boolean isDebugLockEnable() {
         return debugLockEnable;
     }
@@ -704,5 +708,21 @@ public class MessageStoreConfig {
 
     public void setEnableDLegerCommitLog(boolean enableDLegerCommitLog) {
         this.enableDLegerCommitLog = enableDLegerCommitLog;
+    }
+
+    public String getPreferredLeaderId() {
+        return preferredLeaderId;
+    }
+
+    public void setPreferredLeaderId(String preferredLeaderId) {
+        this.preferredLeaderId = preferredLeaderId;
+    }
+
+    public boolean isEnableBatchPush() {
+        return isEnableBatchPush;
+    }
+
+    public void setEnableBatchPush(boolean enableBatchPush) {
+        isEnableBatchPush = enableBatchPush;
     }
 }
