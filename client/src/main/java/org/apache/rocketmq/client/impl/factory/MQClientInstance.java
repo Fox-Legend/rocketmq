@@ -141,6 +141,9 @@ public class MQClientInstance {
 
         this.mQAdminImpl = new MQAdminImpl(this);
 
+        /**
+         * 消费消息-拉取消息核心类
+         */
         this.pullMessageService = new PullMessageService(this);
 
         this.rebalanceService = new RebalanceService(this);
@@ -723,6 +726,11 @@ public class MQClientInstance {
         return false;
     }
 
+    /**
+     * 准备心跳包
+     *
+     * @return
+     */
     private HeartbeatData prepareHeartbeatData() {
         HeartbeatData heartbeatData = new HeartbeatData();
 
@@ -1106,6 +1114,13 @@ public class MQClientInstance {
         return 0;
     }
 
+    /**
+     * 从Broker中获取订阅了 topic和group对应的ConsumerId列表
+     *
+     * @param topic
+     * @param group
+     * @return
+     */
     public List<String> findConsumerIdList(final String topic, final String group) {
         String brokerAddr = this.findBrokerAddrByTopic(topic);
         if (null == brokerAddr) {
